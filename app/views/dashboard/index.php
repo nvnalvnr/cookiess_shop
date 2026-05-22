@@ -27,7 +27,8 @@
                 Products
             </a>
 
-            <a href="#"
+      
+            <a href=""
                class="block p-3 rounded hover:bg-orange-500">
                 Orders
             </a>
@@ -36,6 +37,7 @@
                class="block p-3 rounded hover:bg-red-500">
                 Logout
             </a>
+
 
         </nav>
 

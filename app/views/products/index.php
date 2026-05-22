@@ -26,6 +26,7 @@
                class="block p-3 rounded bg-orange-500">
                 Products
             </a>
+ 
 
         </nav>
 
@@ -40,7 +41,7 @@
                 Data Produk
             </h1>
 
-            <a href="#"
+            <a href="index.php?url=product/create"
                class="bg-orange-600 text-white px-5 py-3 rounded-lg">
                 + Tambah Produk
             </a>
@@ -52,7 +53,6 @@
             <table class="w-full">
 
                 <thead class="bg-orange-100">
-
                     <tr>
                         <th class="p-4 text-left">ID</th>
                         <th class="p-4 text-left">Nama</th>
@@ -60,7 +60,6 @@
                         <th class="p-4 text-left">Stok</th>
                         <th class="p-4 text-left">Aksi</th>
                     </tr>
-
                 </thead>
 
                 <tbody>
@@ -74,17 +73,17 @@
                         <td class="p-4"><?= $row['name']; ?></td>
 
                         <td class="p-4">
-                            Rp <?= number_format($row['price'],0,',','.'); ?>
+                            Rp <?= number_format($row['price'], 0, ',', '.'); ?>
                         </td>
 
                         <td class="p-4"><?= $row['stock']; ?></td>
 
                         <td class="p-4">
 
-                            <button
-                                class="bg-blue-500 text-white px-3 py-1 rounded">
-                                Edit
-                            </button>
+                        <a href="index.php?url=product/edit&id=<?= $row['id']; ?>"
+                        class="bg-blue-500 text-white px-3 py-1 rounded">
+                        Edit
+                        </a>
 
                             <button
                                 class="bg-red-500 text-white px-3 py-1 rounded">
