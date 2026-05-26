@@ -16,17 +16,22 @@
         </div>
 
         <nav class="p-4 space-y-2">
-
+            <!-- DASHBOARD -->
             <a href="index.php?url=dashboard/index"
                class="block p-3 rounded hover:bg-orange-500">
                 Dashboard
             </a>
-
+        <!-- PRODUK  -->
             <a href="index.php?url=product/index"
                class="block p-3 rounded bg-orange-500">
                 Products
             </a>
 
+            <!-- LOGOUT -->
+            <a href="index.php?url=auth/logout"
+            class="block p-3 rounded hover:bg-red-500">
+                Logout
+            </a>
         </nav>
 
     </aside>
@@ -65,12 +70,12 @@
 
                 <tbody>
 
-                <?php while($row = mysqli_fetch_assoc($products)): ?>
+                <?php $no = 1; while($row = mysqli_fetch_assoc($products)): ?>
 
                     <tr class="border-b hover:bg-orange-50">
 
                         <td class="p-4">
-                            <?= $row['id']; ?>
+                            <?= $no++; ?>
                         </td>
 
                         <td class="p-4 font-medium">

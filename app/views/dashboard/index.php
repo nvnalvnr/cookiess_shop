@@ -33,7 +33,7 @@
                 Orders
             </a>
 
-            <a href="#"
+            <a href="index.php?url=auth/logout"
                class="block p-3 rounded hover:bg-red-500">
                 Logout
             </a>
@@ -54,7 +54,8 @@
 
             <div class="bg-white p-6 rounded-xl shadow">
                 <h3 class="text-gray-500">Total Produk</h3>
-                <p class="text-3xl font-bold mt-2">20</p>
+                <p class="text-3xl font-bold mt-2"><?= $totalProduk; ?></p>
+
             </div>
 
             <div class="bg-white p-6 rounded-xl shadow">
@@ -64,7 +65,7 @@
 
             <div class="bg-white p-6 rounded-xl shadow">
                 <h3 class="text-gray-500">Total User</h3>
-                <p class="text-3xl font-bold mt-2">5</p>
+                <p class="text-3xl font-bold mt-2"><?= $totalUser; ?></p>
             </div>
 
         </div>

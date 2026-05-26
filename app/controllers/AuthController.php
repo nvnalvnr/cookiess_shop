@@ -59,6 +59,14 @@ class AuthController
         require_once "../app/views/auth/register.php";
     }
 
+     // Logout
+    public function logout()
+    {
+        session_destroy();
+        header("Location: index.php?url=auth/login");
+        exit;
+    }
+
     // Proses register
     public function processRegister()
     {
