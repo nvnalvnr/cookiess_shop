@@ -16,7 +16,7 @@
         </h1>
 
         <form
-            action="/cookies-shop/public/index.php?url=auth/processRegister"
+            action="index.php?url=auth/processRegister"
             method="POST"
             class="space-y-4"
         >

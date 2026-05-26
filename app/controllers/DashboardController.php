@@ -1,5 +1,5 @@
 <?php
-require_once "../views/middleware/auth.php";
+require_once "../app/middleware/auth.php";
 class DashboardController
 {
     public function index()

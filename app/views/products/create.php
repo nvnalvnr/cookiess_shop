@@ -12,7 +12,7 @@
         Tambah Produk Cookies
     </h1>
 
-    <form action="/cookies-shop/public/index.php?url=product/store" method="POST">
+    <form action="index.php?url=product/store" method="POST">
 
     <div class="mb-4">
         <label>Nama Produk</label>

@@ -22,7 +22,7 @@
         </div>
 
         <form
-            action="/cookies-shop/public/index.php?url=auth/processLogin"
+            action="index.php?url=auth/processLogin"
             method="POST"
             class="space-y-4"
         >
@@ -66,7 +66,7 @@
             Belum punya akun?
 
             <a
-                href="/cookies-shop/public/index.php?url=auth/register"
+                href="index.php?url=auth/register"
                 class="text-orange-500 font-semibold"
             >
                 Register
