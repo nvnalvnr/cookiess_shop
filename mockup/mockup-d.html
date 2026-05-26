@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mockup D — Toko Kue & Cookies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <!-- NAVIGASI HALAMAN MOCKUP -->
+    <div
+      class="bg-yellow-400 text-yellow-900 px-6 py-2 text-sm font-semibold flex gap-4 flex-wrap"
+    >
+      <span>🍪 MOCKUP D — Toko Kue & Cookies</span>
+      <span class="text-yellow-700">|</span>
+      <a href="#halaman-login" class="underline">Login</a>
+      <a href="#halaman-register" class="underline">Register</a>
+      <a href="#halaman-dashboard" class="underline">Dashboard Admin</a>
+      <a href="#halaman-produk" class="underline">Manajemen Produk</a>
+      <a href="#halaman-pesanan-admin" class="underline">Kelola Pesanan</a>
+      <a href="#halaman-katalog" class="underline">Katalog (Pelanggan)</a>
+      <a href="#halaman-pesan" class="underline">Form Pesan</a>
+      <a href="#halaman-riwayat" class="underline">Riwayat Pesanan</a>
+    </div>
+
+    <!-- ==================== LOGIN ==================== -->
+    <div
+      id="halaman-login"
+      class="min-h-screen bg-pink-50 flex items-center justify-center py-16"
+    >
+      <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+          <div class="text-5xl mb-3">🍪</div>
+          <h1 class="text-2xl font-bold text-pink-800">Sweet Cookies Shop</h1>
+          <p class="text-gray-500 text-sm mt-1">
+            Masuk untuk mulai pesan kue favoritmu
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+          <div class="mb-5">
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Email</label
+            >
+            <input
+              type="email"
+              placeholder="contoh@email.com"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm"
+              disabled
+            />
+          </div>
+          <div class="mb-6">
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Password</label
+            >
+            <input
+              type="password"
+              placeholder="••••••••"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm"
+              disabled
+            />
+          </div>
+          <button
+            class="w-full bg-pink-500 text-white font-semibold py-2.5 rounded-lg"
+          >
+            Masuk
+          </button>
+          <p class="text-center text-sm text-gray-500 mt-4">
+            Belum punya akun?
+            <span class="text-pink-500 font-medium">Daftar di sini</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center py-2 bg-gray-200 text-xs text-gray-500">
+      ▼ scroll ke bawah untuk lihat halaman lain
+    </div>
+
+    <!-- ==================== REGISTER ==================== -->
+    <div
+      id="halaman-register"
+      class="min-h-screen bg-pink-50 flex items-center justify-center py-16"
+    >
+      <div class="w-full max-w-md">
+        <div class="text-center mb-8">
+          <div class="text-5xl mb-3">🍪</div>
+          <h1 class="text-2xl font-bold text-pink-800">
+            Daftar Akun Pelanggan
+          </h1>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+          <div class="mb-4">
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Nama Lengkap</label
+            >
+            <input
+              type="text"
+              placeholder="Nama kamu"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm"
+              disabled
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Email</label
+            >
+            <input
+              type="email"
+              placeholder="contoh@email.com"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm"
+              disabled
+            />
+          </div>
+          <div class="mb-6">
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Password</label
+            >
+            <input
+              type="password"
+              placeholder="••••••••"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm"
+              disabled
+            />
+          </div>
+          <button
+            class="w-full bg-pink-500 text-white font-semibold py-2.5 rounded-lg"
+          >
+            Daftar
+          </button>
+          <p class="text-center text-sm text-gray-500 mt-4">
+            Sudah punya akun?
+            <span class="text-pink-500 font-medium">Masuk</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center py-2 bg-gray-200 text-xs text-gray-500">
+      ▼ scroll ke bawah untuk lihat halaman lain
+    </div>
+
+    <!-- ==================== LAYOUT ADMIN ==================== -->
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-60 bg-pink-800 text-white flex flex-col min-h-screen">
+        <div class="p-6 border-b border-pink-700">
+          <div class="text-lg font-bold">🍪 Sweet Cookies</div>
+          <div class="text-xs text-pink-300 mt-1">Admin Panel</div>
+        </div>
+        <nav class="flex-1 p-4 space-y-1">
+          <a
+            href="#halaman-dashboard"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-pink-700 text-white text-sm font-medium"
+          >
+            📊 Dashboard
+          </a>
+          <a
+            href="#halaman-produk"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-pink-700 text-pink-200 text-sm"
+          >
+            🧁 Produk Kue
+          </a>
+          <a
+            href="#halaman-pesanan-admin"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-pink-700 text-pink-200 text-sm"
+          >
+            📋 Kelola Pesanan
+          </a>
+        </nav>
+        <div class="p-4 border-t border-pink-700">
+          <div class="text-sm text-pink-300">Admin Toko Kue</div>
+          <button class="text-xs text-red-300 mt-1">Keluar</button>
+        </div>
+      </aside>
+
+      <main class="flex-1 bg-gray-100">
+        <!-- DASHBOARD -->
+        <div id="halaman-dashboard" class="p-8">
+          <h2 class="text-2xl font-bold text-gray-800 mb-1">Dashboard</h2>
+          <p class="text-gray-500 text-sm mb-6">Selamat datang, Admin 🍪</p>
+
+          <div class="grid grid-cols-3 gap-5 mb-8">
+            <div class="bg-white rounded-xl shadow p-6 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center text-2xl"
+              >
+                🧁
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-gray-800">5</div>
+                <div class="text-sm text-gray-500">Total Produk</div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow p-6 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-2xl"
+              >
+                📦
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-gray-800">7</div>
+                <div class="text-sm text-gray-500">Pesanan Hari Ini</div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow p-6 flex items-center gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center text-2xl"
+              >
+                ⏳
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-yellow-600">3</div>
+                <div class="text-sm text-gray-500">Pesanan Pending</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl shadow p-6">
+            <h3 class="font-semibold text-gray-700 mb-4">Pesanan Terbaru</h3>
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-left text-gray-500 border-b">
+                  <th class="pb-3">Pelanggan</th>
+                  <th class="pb-3">Produk</th>
+                  <th class="pb-3">Total</th>
+                  <th class="pb-3">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr>
+                  <td class="py-3">Siti Rahayu</td>
+                  <td>Cookies Choco Chip x2</td>
+                  <td class="font-semibold">Rp 50.000</td>
+                  <td>
+                    <span
+                      class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs font-semibold"
+                      >Pending</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3">Budi Santoso</td>
+                  <td>Brownies Fudgy x1</td>
+                  <td class="font-semibold">Rp 45.000</td>
+                  <td>
+                    <span
+                      class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-semibold"
+                      >Diproses</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3">Dewi Lestari</td>
+                  <td>Red Velvet Loaf x1</td>
+                  <td class="font-semibold">Rp 55.000</td>
+                  <td>
+                    <span
+                      class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold"
+                      >Selesai</span
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- MANAJEMEN PRODUK -->
+        <div id="halaman-produk" class="p-8 border-t-4 border-yellow-400">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h2 class="text-2xl font-bold text-gray-800">Produk Kue</h2>
+              <p class="text-gray-500 text-sm">
+                Kelola semua produk kue dan cookies
+              </p>
+            </div>
+            <button
+              class="bg-pink-500 text-white px-4 py-2 rounded-lg text-sm font-semibold"
+            >
+              + Tambah Produk
+            </button>
+          </div>
+          <div class="bg-white rounded-xl shadow overflow-hidden">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50 border-b">
+                <tr class="text-left text-gray-600">
+                  <th class="px-6 py-3">Nama Kue</th>
+                  <th class="px-6 py-3">Deskripsi</th>
+                  <th class="px-6 py-3">Harga</th>
+                  <th class="px-6 py-3">Stok</th>
+                  <th class="px-6 py-3">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr>
+                  <td class="px-6 py-4 font-medium">Cookies Choco Chip</td>
+                  <td class="px-6 py-4 text-gray-400 text-xs">
+                    Kue kering coklat chip, isi 10 pcs
+                  </td>
+                  <td class="px-6 py-4">Rp 25.000</td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold"
+                      >50</span
+                    >
+                  </td>
+                  <td class="px-6 py-4 flex gap-2">
+                    <button
+                      class="text-xs bg-yellow-100 text-yellow-700 px-3 py-1 rounded font-medium"
+                    >
+                      Edit</button
+                    ><button
+                      class="text-xs bg-red-100 text-red-600 px-3 py-1 rounded font-medium"
+                    >
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-medium">Brownies Fudgy</td>
+                  <td class="px-6 py-4 text-gray-400 text-xs">
+                    Brownies coklat lembut, ukuran 20cm
+                  </td>
+                  <td class="px-6 py-4">Rp 45.000</td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold"
+                      >20</span
+                    >
+                  </td>
+                  <td class="px-6 py-4 flex gap-2">
+                    <button
+                      class="text-xs bg-yellow-100 text-yellow-700 px-3 py-1 rounded font-medium"
+                    >
+                      Edit</button
+                    ><button
+                      class="text-xs bg-red-100 text-red-600 px-3 py-1 rounded font-medium"
+                    >
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-medium">Red Velvet Loaf</td>
+                  <td class="px-6 py-4 text-gray-400 text-xs">
+                    Red velvet dengan cream cheese frosting
+                  </td>
+                  <td class="px-6 py-4">Rp 55.000</td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-bold"
+                      >15</span
+                    >
+                  </td>
+                  <td class="px-6 py-4 flex gap-2">
+                    <button
+                      class="text-xs bg-yellow-100 text-yellow-700 px-3 py-1 rounded font-medium"
+                    >
+                      Edit</button
+                    ><button
+                      class="text-xs bg-red-100 text-red-600 px-3 py-1 rounded font-medium"
+                    >
+                      Hapus
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- KELOLA PESANAN ADMIN -->
+        <div
+          id="halaman-pesanan-admin"
+          class="p-8 border-t-4 border-orange-400"
+        >
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Kelola Pesanan</h2>
+            <p class="text-gray-500 text-sm">Update status pesanan pelanggan</p>
+          </div>
+          <div class="bg-white rounded-xl shadow overflow-hidden">
+            <table class="w-full text-sm">
+              <thead class="bg-gray-50 border-b">
+                <tr class="text-left text-gray-600">
+                  <th class="px-6 py-3">Pelanggan</th>
+                  <th class="px-6 py-3">Produk</th>
+                  <th class="px-6 py-3">Jml</th>
+                  <th class="px-6 py-3">Total</th>
+                  <th class="px-6 py-3">Alamat</th>
+                  <th class="px-6 py-3">Status</th>
+                  <th class="px-6 py-3">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr>
+                  <td class="px-6 py-4 font-medium">Siti Rahayu</td>
+                  <td class="px-6 py-4">Cookies Choco Chip</td>
+                  <td class="px-6 py-4">2</td>
+                  <td class="px-6 py-4 font-semibold">Rp 50.000</td>
+                  <td class="px-6 py-4 text-gray-400 text-xs">
+                    Jl. Mawar No. 5
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs font-semibold"
+                      >Pending</span
+                    >
+                  </td>
+                  <td class="px-6 py-4">
+                    <select
+                      class="border border-gray-300 rounded px-2 py-1 text-xs"
+                    >
+                      <option>pending</option>
+                      <option selected>diproses</option>
+                      <option>dikirim</option>
+                      <option>selesai</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-6 py-4 font-medium">Budi Santoso</td>
+                  <td class="px-6 py-4">Brownies Fudgy</td>
+                  <td class="px-6 py-4">1</td>
+                  <td class="px-6 py-4 font-semibold">Rp 45.000</td>
+                  <td class="px-6 py-4 text-gray-400 text-xs">
+                    Jl. Melati No. 12
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-xs font-semibold"
+                      >Diproses</span
+                    >
+                  </td>
+                  <td class="px-6 py-4">
+                    <select
+                      class="border border-gray-300 rounded px-2 py-1 text-xs"
+                    >
+                      <option>pending</option>
+                      <option>diproses</option>
+                      <option selected>dikirim</option>
+                      <option>selesai</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="text-center py-2 bg-gray-200 text-xs text-gray-500">
+      ▼ scroll ke bawah untuk lihat tampilan pelanggan
+    </div>
+
+    <!-- ==================== KATALOG PELANGGAN ==================== -->
+    <div id="halaman-katalog" class="min-h-screen bg-pink-50 py-10 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <h2 class="text-2xl font-bold text-pink-800">
+              🍪 Sweet Cookies Shop
+            </h2>
+            <p class="text-gray-500 text-sm">
+              Halo, Siti Rahayu! Pilih kue favoritmu 👋
+            </p>
+          </div>
+          <div class="flex gap-3 items-center">
+            <a
+              href="#halaman-riwayat"
+              class="text-sm text-pink-600 font-medium underline"
+              >Pesanan Saya</a
+            >
+            <button class="text-sm text-red-500">Keluar</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-5">
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <div
+              class="bg-pink-100 h-32 flex items-center justify-center text-5xl"
+            >
+              🍪
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-800">Cookies Choco Chip</h3>
+              <p class="text-xs text-gray-400 mt-1">
+                Kue kering coklat chip renyah, isi 10 pcs
+              </p>
+              <p class="text-pink-600 font-bold mt-2">Rp 25.000</p>
+              <p class="text-xs text-gray-400">Stok: 50</p>
+              <a
+                href="#halaman-pesan"
+                class="block mt-3 bg-pink-500 text-white text-center py-2 rounded-lg text-sm font-medium"
+                >Pesan Sekarang</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <div
+              class="bg-amber-100 h-32 flex items-center justify-center text-5xl"
+            >
+              🍫
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-800">Brownies Fudgy</h3>
+              <p class="text-xs text-gray-400 mt-1">
+                Brownies coklat lembut dan legit, ukuran 20cm
+              </p>
+              <p class="text-pink-600 font-bold mt-2">Rp 45.000</p>
+              <p class="text-xs text-gray-400">Stok: 20</p>
+              <a
+                href="#halaman-pesan"
+                class="block mt-3 bg-pink-500 text-white text-center py-2 rounded-lg text-sm font-medium"
+                >Pesan Sekarang</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <div
+              class="bg-yellow-100 h-32 flex items-center justify-center text-5xl"
+            >
+              🧁
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-800">Nastar Keju</h3>
+              <p class="text-xs text-gray-400 mt-1">
+                Kue nastar isi selai nanas, topping keju
+              </p>
+              <p class="text-pink-600 font-bold mt-2">Rp 35.000</p>
+              <p class="text-xs text-gray-400">Stok: 30</p>
+              <a
+                href="#halaman-pesan"
+                class="block mt-3 bg-pink-500 text-white text-center py-2 rounded-lg text-sm font-medium"
+                >Pesan Sekarang</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <div
+              class="bg-red-100 h-32 flex items-center justify-center text-5xl"
+            >
+              🎂
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-800">Red Velvet Loaf</h3>
+              <p class="text-xs text-gray-400 mt-1">
+                Red velvet dengan cream cheese frosting
+              </p>
+              <p class="text-pink-600 font-bold mt-2">Rp 55.000</p>
+              <p class="text-xs text-gray-400">Stok: 15</p>
+              <a
+                href="#halaman-pesan"
+                class="block mt-3 bg-pink-500 text-white text-center py-2 rounded-lg text-sm font-medium"
+                >Pesan Sekarang</a
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden opacity-50">
+            <div
+              class="bg-gray-100 h-32 flex items-center justify-center text-5xl"
+            >
+              🍩
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-gray-800">Donut Glazed</h3>
+              <p class="text-xs text-gray-400 mt-1">
+                Donut lembut dengan glazing vanilla
+              </p>
+              <p class="text-pink-600 font-bold mt-2">Rp 30.000</p>
+              <p class="text-xs text-red-400 font-semibold">Stok habis</p>
+              <button
+                class="block w-full mt-3 bg-gray-300 text-gray-500 text-center py-2 rounded-lg text-sm font-medium cursor-not-allowed"
+                disabled
+              >
+                Tidak Tersedia
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center py-2 bg-gray-200 text-xs text-gray-500">
+      ▼ scroll ke bawah untuk lihat form pesan & riwayat
+    </div>
+
+    <!-- ==================== FORM PESAN ==================== -->
+    <div
+      id="halaman-pesan"
+      class="min-h-screen bg-pink-50 flex items-center justify-center py-16 px-6"
+    >
+      <div class="w-full max-w-lg">
+        <h2 class="text-2xl font-bold text-pink-800 mb-2">Form Pemesanan</h2>
+        <p class="text-gray-500 text-sm mb-6">
+          Isi detail pesananmu di bawah ini
+        </p>
+        <div class="bg-white rounded-2xl shadow p-8">
+          <!-- Info produk yang dipilih -->
+          <div
+            class="bg-pink-50 border border-pink-200 rounded-xl p-4 mb-6 flex items-center gap-4"
+          >
+            <div class="text-4xl">🍪</div>
+            <div>
+              <div class="font-bold text-gray-800">Cookies Choco Chip</div>
+              <div class="text-pink-600 font-semibold text-sm">
+                Rp 25.000 / pcs
+              </div>
+              <div class="text-xs text-gray-400">Stok tersedia: 50</div>
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Jumlah Pesanan</label
+            >
+            <input
+              type="number"
+              placeholder="Masukkan jumlah"
+              min="1"
+              max="50"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm"
+              disabled
+            />
+            <p class="text-xs text-gray-400 mt-1">Maksimal 50 (sesuai stok)</p>
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-sm font-semibold text-gray-700 mb-1"
+              >Alamat Pengiriman</label
+            >
+            <textarea
+              rows="3"
+              placeholder="Masukkan alamat lengkap pengiriman..."
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm resize-none"
+              disabled
+            ></textarea>
+          </div>
+
+          <div class="bg-gray-50 rounded-lg p-4 mb-6">
+            <div class="flex justify-between text-sm">
+              <span class="text-gray-500">Harga satuan</span>
+              <span>Rp 25.000</span>
+            </div>
+            <div class="flex justify-between text-sm mt-1">
+              <span class="text-gray-500">Jumlah</span>
+              <span>x 2</span>
+            </div>
+            <div
+              class="flex justify-between font-bold text-pink-700 mt-2 pt-2 border-t"
+            >
+              <span>Total</span>
+              <span>Rp 50.000</span>
+            </div>
+          </div>
+
+          <button
+            class="w-full bg-pink-500 text-white font-semibold py-2.5 rounded-lg"
+          >
+            Konfirmasi Pesanan
+          </button>
+          <a
+            href="#halaman-katalog"
+            class="block text-center text-sm text-gray-500 mt-3"
+            >← Kembali ke katalog</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== RIWAYAT PESANAN ==================== -->
+    <div id="halaman-riwayat" class="min-h-screen bg-pink-50 py-10 px-6">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex items-center justify-between mb-6">
+          <div>
+            <h2 class="text-2xl font-bold text-pink-800">Pesanan Saya</h2>
+            <p class="text-gray-500 text-sm">Riwayat semua pesananmu</p>
+          </div>
+          <a
+            href="#halaman-katalog"
+            class="text-sm text-pink-600 font-medium underline"
+            >← Katalog</a
+          >
+        </div>
+        <div class="bg-white rounded-2xl shadow overflow-hidden">
+          <table class="w-full text-sm">
+            <thead class="bg-pink-500 text-white">
+              <tr>
+                <th class="px-6 py-3 text-left">Nama Kue</th>
+                <th class="px-6 py-3 text-left">Jml</th>
+                <th class="px-6 py-3 text-left">Total</th>
+                <th class="px-6 py-3 text-left">Status</th>
+                <th class="px-6 py-3 text-left">Tgl Pesan</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              <tr>
+                <td class="px-6 py-4 font-medium">Cookies Choco Chip</td>
+                <td class="px-6 py-4">2</td>
+                <td class="px-6 py-4 font-semibold text-pink-600">Rp 50.000</td>
+                <td class="px-6 py-4">
+                  <span
+                    class="bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded text-xs font-semibold"
+                    >Pending</span
+                  >
+                </td>
+                <td class="px-6 py-4 text-gray-400">19 Mei 2026</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Brownies Fudgy</td>
+                <td class="px-6 py-4">1</td>
+                <td class="px-6 py-4 font-semibold text-pink-600">Rp 45.000</td>
+                <td class="px-6 py-4">
+                  <span
+                    class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded text-xs font-semibold"
+                    >Dikirim</span
+                  >
+                </td>
+                <td class="px-6 py-4 text-gray-400">15 Mei 2026</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 font-medium">Nastar Keju</td>
+                <td class="px-6 py-4">3</td>
+                <td class="px-6 py-4 font-semibold text-pink-600">
+                  Rp 105.000
+                </td>
+                <td class="px-6 py-4">
+                  <span
+                    class="bg-green-100 text-green-700 px-2 py-0.5 rounded text-xs font-semibold"
+                    >Selesai</span
+                  >
+                </td>
+                <td class="px-6 py-4 text-gray-400">10 Mei 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
