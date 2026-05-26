@@ -1,9 +1,12 @@
 <?php
-
+require_once "../views/middleware/auth.php";
 class DashboardController
 {
     public function index()
     {
+        requireLogin();
         require_once "../app/views/dashboard/index.php";
+        
+
     }
 }

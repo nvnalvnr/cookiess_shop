@@ -2,80 +2,109 @@
 
 require_once "../config/database.php";
 require_once "../app/models/Product.php";
+require_once "../app/middleware/auth.php";
 
 class ProductController
 {
     public function index()
-    {
-        global $conn;
+{
+    requireLogin();
 
-        $productModel = new Product($conn);
+    global $conn;
 
-        $products = $productModel->getAll();
+    $productModel = new Product($conn);
 
-        require_once "../app/views/products/index.php";
-    }
+    $products = $productModel->getAll();
 
+    require_once "../app/views/products/index.php";
+}
     public function create()
     {
+        requireLogin();
         require_once "../app/views/products/create.php";
     }
 
     public function store()
     {
+        requireLogin();
         global $conn;
-
-        $productModel = new Product($conn);
 
         $name = $_POST['name'];
         $price = $_POST['price'];
         $stock = $_POST['stock'];
 
         if (empty($name) || empty($price) || empty($stock)) {
+
             echo "Semua field wajib diisi";
             return;
         }
 
-        $productModel->create($name, $price, $stock);
+        $productModel = new Product($conn);
+
+        $productModel->create(
+            $name,
+            $price,
+            $stock
+        );
 
         header("Location: index.php?url=product/index");
         exit;
     }
 
     public function edit()
-{
-    global $conn;
+    {
+        requireLogin();
 
-    $id = $_GET['id'];
+        global $conn;
 
-    $productModel = new Product($conn);
+        $id = $_GET['id'];
 
-    $product = mysqli_fetch_assoc(
-        $productModel->find($id)
-    );
+        $productModel = new Product($conn);
 
-    require_once "../app/views/products/edit.php";
-}
+        $product = mysqli_fetch_assoc(
+            $productModel->find($id)
+        );
 
-public function update()
-{
-    global $conn;
+        require_once "../app/views/products/edit.php";
+    }
 
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $stock = $_POST['stock'];
+    public function update()
+    {
+        requireLogin();
 
-    $productModel = new Product($conn);
+        global $conn;
 
-    $productModel->update(
-        $id,
-        $name,
-        $price,
-        $stock
-    );
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $stock = $_POST['stock'];
 
-    header("Location: index.php?url=product/index");
-    exit;
-}
+        $productModel = new Product($conn);
+
+        $productModel->update(
+            $id,
+            $name,
+            $price,
+            $stock
+        );
+
+        header("Location: index.php?url=product/index");
+        exit;
+    }
+
+    public function delete()
+    {
+        requireLogin();
+
+        global $conn;
+
+        $id = $_GET['id'];
+
+        $productModel = new Product($conn);
+
+        $productModel->delete($id);
+
+        header("Location: index.php?url=product/index");
+        exit;
+    }
 }

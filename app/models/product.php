@@ -40,4 +40,11 @@ public function update($id, $name, $price, $stock)
     return mysqli_query($this->conn, $query);
 }
 
+public function delete($id)
+{
+    $query = "DELETE FROM products WHERE id = '$id'";
+
+    return mysqli_query($this->conn, $query);
+}
+
 }
