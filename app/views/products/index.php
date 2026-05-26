@@ -27,6 +27,7 @@
                 Products
             </a>
 
+            <!-- logout -->
             <a href="index.php?url=auth/logout"
                class="block p-3 rounded hover:bg-red-500">
                 Logout
