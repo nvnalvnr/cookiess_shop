@@ -14,14 +14,15 @@ class Product
         $query = "SELECT * FROM products";
         return mysqli_query($this->conn, $query);
     }
-     public function create($name, $price, $stock)
-    {
-        $query = "INSERT INTO products (name, price, stock)
-                  VALUES ('$name', '$price', '$stock')";
+    public function create($name, $price, $stock, $image)
+{
+    $query = "INSERT INTO products
+              (name, price, stock, image)
+              VALUES
+              ('$name', '$price', '$stock', '$image')";
 
-        return mysqli_query($this->conn, $query);
-    }
-
+    return mysqli_query($this->conn, $query);
+}
     public function find($id)
 {
     $query = "SELECT * FROM products WHERE id = '$id'";
@@ -29,17 +30,18 @@ class Product
     return mysqli_query($this->conn, $query);
 }
 
-public function update($id, $name, $price, $stock)
+public function update($id, $name, $price, $stock, $image)
 {
     $query = "UPDATE products
-              SET name='$name',
-                  price='$price',
-                  stock='$stock'
+              SET
+                name='$name',
+                price='$price',
+                stock='$stock',
+                image='$image'
               WHERE id='$id'";
 
     return mysqli_query($this->conn, $query);
 }
-
 public function delete($id)
 {
     $query = "DELETE FROM products WHERE id = '$id'";

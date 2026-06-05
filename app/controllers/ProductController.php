@@ -24,33 +24,38 @@ class ProductController
         require_once "../app/views/products/create.php";
     }
 
-    public function store()
-    {
-        requireLogin();
-        global $conn;
+  public function store()
+{
+    requireLogin();
 
-        $name = $_POST['name'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
+    global $conn;
 
-        if (empty($name) || empty($price) || empty($stock)) {
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $stock = $_POST['stock'];
+    $image = $_POST['image'];
 
-            echo "Semua field wajib diisi";
-            return;
-        }
-
-        $productModel = new Product($conn);
-
-        $productModel->create(
-            $name,
-            $price,
-            $stock
-        );
-
-        header("Location: index.php?url=product/index");
-        exit;
+    if (
+        empty($name) ||
+        empty($price) ||
+        empty($stock)
+    ) {
+        echo "Semua field wajib diisi";
+        return;
     }
 
+    $productModel = new Product($conn);
+
+    $productModel->create(
+        $name,
+        $price,
+        $stock,
+        $image
+    );
+
+    header("Location: index.php?url=product/index");
+    exit;
+}
     public function edit()
     {
         requireLogin();
@@ -74,10 +79,12 @@ class ProductController
 
         global $conn;
 
-        $id = $_POST['id'];
+       $id = $_POST['id'];
         $name = $_POST['name'];
         $price = $_POST['price'];
         $stock = $_POST['stock'];
+        $image = $_POST['image'];
+        
 
         $productModel = new Product($conn);
 
@@ -85,7 +92,8 @@ class ProductController
             $id,
             $name,
             $price,
-            $stock
+            $stock,
+            $image
         );
 
         header("Location: index.php?url=product/index");

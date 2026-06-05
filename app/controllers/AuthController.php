@@ -4,13 +4,13 @@ require_once "../config/database.php";
 
 class AuthController
 {
-    // Tampilkan halaman login
+    // Login Page
     public function login()
     {
         require_once "../app/views/auth/login.php";
     }
 
-    // Proses login
+    // Proses Login
     public function processLogin()
     {
         global $conn;
@@ -18,13 +18,11 @@ class AuthController
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Validasi
         if (empty($email) || empty($password)) {
             echo "Email dan password wajib diisi";
             return;
         }
 
-        // Cari user berdasarkan email
         $query = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($conn, $query);
 
@@ -32,42 +30,44 @@ class AuthController
 
             $user = mysqli_fetch_assoc($result);
 
-            // Cocokkan password
             if (password_verify($password, $user['password'])) {
 
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['name'] = $user['name'];
                 $_SESSION['role'] = $user['role'];
 
-                header("Location: index.php?url=dashboard/index");
+                if ($user['role'] == 'admin') {
+
+                    header("Location: index.php?url=dashboard/index");
+
+                } else {
+
+                    header("Location: index.php?url=catalog/index");
+
+                }
+
                 exit;
 
             } else {
 
                 echo "Password salah";
+
             }
 
         } else {
 
             echo "Email tidak ditemukan";
+
         }
     }
 
-    // Tampilkan halaman register
+    // Register Page
     public function register()
     {
         require_once "../app/views/auth/register.php";
     }
 
-     // Logout
-    public function logout()
-    {
-        session_destroy();
-        header("Location: index.php?url=auth/login");
-        exit;
-    }
-
-    // Proses register
+    // Proses Register
     public function processRegister()
     {
         global $conn;
@@ -76,17 +76,13 @@ class AuthController
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Validasi
         if (empty($name) || empty($email) || empty($password)) {
-
             echo "Semua field wajib diisi";
             return;
         }
 
-        // Hash password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // Simpan ke database
         $query = "INSERT INTO users (name, email, password)
                   VALUES ('$name', '$email', '$hashedPassword')";
 
@@ -99,6 +95,16 @@ class AuthController
         } else {
 
             echo "REGISTER GAGAL";
+
         }
+    }
+
+    // Logout
+    public function logout()
+    {
+        session_destroy();
+
+        header("Location: index.php?url=auth/login");
+        exit;
     }
 }

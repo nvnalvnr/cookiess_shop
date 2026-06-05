@@ -1,131 +1,147 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Products</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
+<?php require_once "../app/views/layouts/header.php"; ?>
+<?php require_once "../app/views/layouts/sidebar.php"; ?>
 
-<div class="flex min-h-screen">
+<main class="flex-1 p-6">
 
-    <!-- Sidebar -->
-    <aside class="w-64 bg-orange-600 text-white">
+    <!-- Header -->
+    <div class="bg-white rounded-3xl shadow-sm p-6 mb-5">
 
-        <div class="p-6 text-2xl font-bold border-b border-orange-500">
-            🍪 Cookies Shop
-        </div>
+        <div class="flex justify-between items-center">
 
-        <nav class="p-4 space-y-2">
-            <!-- DASHBOARD -->
-            <a href="index.php?url=dashboard/index"
-               class="block p-3 rounded hover:bg-orange-500">
-                Dashboard
-            </a>
-        <!-- PRODUK  -->
-            <a href="index.php?url=product/index"
-               class="block p-3 rounded bg-orange-500">
-                Products
-            </a>
+            <div>
 
-            <!-- LOGOUT -->
-            <a href="index.php?url=auth/logout"
-            class="block p-3 rounded hover:bg-red-500">
-                Logout
-            </a>
-        </nav>
+                <h1 class="text-3xl font-bold text-rose-600">
+                    🍪 Products Management
+                </h1>
 
-    </aside>
+                <p class="text-gray-500 mt-1">
+                    Kelola seluruh produk Cookies Shop.
+                </p>
 
-    <!-- Content -->
-    <main class="flex-1 p-10">
+            </div>
 
-        <div class="flex justify-between items-center mb-8">
-
-            <h1 class="text-4xl font-bold">
-                Data Produk
-            </h1>
-
-            <a href="index.php?url=product/create"
-               class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg shadow">
-                + Tambah Produk
+            <a
+                href="index.php?url=product/create"
+                class="bg-rose-500 hover:bg-rose-600 text-white px-5 py-3 rounded-xl transition"
+            >
+                + Add Product
             </a>
 
         </div>
 
-        <div class="bg-white rounded-xl shadow overflow-hidden">
+    </div>
 
-            <table class="w-full">
+    <!-- Table -->
+    <div class="bg-white rounded-3xl shadow-sm overflow-hidden">
 
-                <thead class="bg-orange-100">
+        <table class="w-full">
 
-                    <tr>
-                        <th class="p-4 text-left">ID</th>
-                        <th class="p-4 text-left">Nama Produk</th>
-                        <th class="p-4 text-left">Harga</th>
-                        <th class="p-4 text-left">Stok</th>
-                        <th class="p-4 text-center">Aksi</th>
-                    </tr>
+            <thead class="bg-rose-100">
 
-                </thead>
+                <tr>
 
-                <tbody>
+                    <th class="p-4 text-left">
+                        No
+                    </th>
 
-                <?php $no = 1; while($row = mysqli_fetch_assoc($products)): ?>
+                    <th class="p-4 text-left">
+                        Image
+                    </th>
 
-                    <tr class="border-b hover:bg-orange-50">
+                    <th class="p-4 text-left">
+                        Product Name
+                    </th>
 
-                        <td class="p-4">
-                            <?= $no++; ?>
-                        </td>
+                    <th class="p-4 text-left">
+                        Price
+                    </th>
 
-                        <td class="p-4 font-medium">
-                            <?= $row['name']; ?>
-                        </td>
+                    <th class="p-4 text-left">
+                        Stock
+                    </th>
 
-                        <td class="p-4">
-                            Rp <?= number_format($row['price'], 0, ',', '.'); ?>
-                        </td>
+                    <th class="p-4 text-center">
+                        Action
+                    </th>
 
-                        <td class="p-4">
-                            <?= $row['stock']; ?>
-                        </td>
+                </tr>
 
-                        <td class="p-4">
+            </thead>
 
-                            <div class="flex gap-2 justify-center">
+            <tbody>
 
-                                <a
-                                    href="index.php?url=product/edit&id=<?= $row['id']; ?>"
-                                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-                                >
-                                    Edit
-                                </a>
+            <?php $no = 1; while($row = mysqli_fetch_assoc($products)): ?>
 
-                                <a
-                                    href="index.php?url=product/delete&id=<?= $row['id']; ?>"
-                                    class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-                                    onclick="return confirm('Yakin ingin menghapus produk ini?')"
-                                >
-                                    Hapus
-                                </a>
+                <tr class="border-b hover:bg-rose-50 transition">
 
+                    <td class="p-4">
+                        <?= $no++; ?>
+                    </td>
+
+                    <td class="p-4">
+
+                        <?php if(!empty($row['image'])): ?>
+
+                            <img
+                                src="<?= $row['image']; ?>"
+                                class="w-16 h-16 rounded-xl object-cover"
+                            >
+
+                        <?php else: ?>
+
+                            <div class="w-16 h-16 bg-gray-200 rounded-xl flex items-center justify-center">
+                                📦
                             </div>
 
-                        </td>
+                        <?php endif; ?>
 
-                    </tr>
+                    </td>
 
-                <?php endwhile; ?>
+                    <td class="p-4 font-semibold text-gray-700">
+                        <?= $row['name']; ?>
+                    </td>
 
-                </tbody>
+                    <td class="p-4 font-bold text-rose-600">
+                        Rp <?= number_format($row['price'], 0, ',', '.'); ?>
+                    </td>
 
-            </table>
+                    <td class="p-4">
+                        <?= $row['stock']; ?>
+                    </td>
 
-        </div>
+                    <td class="p-4">
 
-    </main>
+                        <div class="flex justify-center gap-2">
 
-</div>
+                            <a
+                                href="index.php?url=product/edit&id=<?= $row['id']; ?>"
+                                class="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-lg transition"
+                            >
+                                Edit
+                            </a>
 
-</body>
-</html>
+                            <a
+                                href="index.php?url=product/delete&id=<?= $row['id']; ?>"
+                                class="bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded-lg transition"
+                                onclick="return confirm('Yakin ingin menghapus produk ini?')"
+                            >
+                                Hapus
+                            </a>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            <?php endwhile; ?>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+<?php require_once "../app/views/layouts/footer.php"; ?>

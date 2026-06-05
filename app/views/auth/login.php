@@ -7,71 +7,86 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-orange-50 min-h-screen flex items-center justify-center">
 
-    <div class="bg-white w-full max-w-md p-8 rounded-2xl shadow-xl">
+<body class="bg-rose-50 min-h-screen flex items-center justify-center">
 
-        <div class="text-center mb-6">
-            <h1 class="text-4xl font-bold text-orange-500">
-                🍪 Cookies Shop
-            </h1>
+    <div class="w-full max-w-md">
+
+        <div class="text-center mb-8">
+
+            <h1 class="text-6xl mb-2">🍪</h1>
+
+            <h2 class="text-3xl font-bold text-rose-600">
+                Cookies Shop
+            </h2>
 
             <p class="text-gray-500 mt-2">
-                Login ke akun kamu
+                Fresh & Homemade Bakery
             </p>
+
         </div>
 
-        <form
-            action="index.php?url=auth/processLogin"
-            method="POST"
-            class="space-y-4"
-        >
+        <div class="bg-white p-8 rounded-3xl shadow-lg">
 
-            <div>
-                <label class="block mb-2 font-semibold text-gray-700">
-                    Email
-                </label>
-
-                <input
-                    type="email"
-                    name="email"
-                    placeholder="Masukkan email"
-                    class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                >
-            </div>
-
-            <div>
-                <label class="block mb-2 font-semibold text-gray-700">
-                    Password
-                </label>
-
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Masukkan password"
-                    class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                >
-            </div>
-
-            <button
-                type="submit"
-                class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-bold transition"
-            >
+            <h3 class="text-2xl font-bold mb-6 text-center">
                 Login
-            </button>
+            </h3>
 
-        </form>
+            <form action="index.php?url=auth/processLogin" method="POST">
 
-        <p class="text-center mt-6 text-gray-500">
-            Belum punya akun?
+                <div class="mb-4">
 
-            <a
-                href="index.php?url=auth/register"
-                class="text-orange-500 font-semibold"
-            >
-                Register
-            </a>
-        </p>
+                    <label class="block mb-2 text-gray-600">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        name="email"
+                        class="w-full border border-rose-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                        required
+                    >
+
+                </div>
+
+                <div class="mb-6">
+
+                    <label class="block mb-2 text-gray-600">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        class="w-full border border-rose-200 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="w-full bg-rose-500 text-white py-3 rounded-xl hover:bg-rose-600 transition"
+                >
+                    Login
+                </button>
+
+            </form>
+
+            <p class="text-center mt-6 text-gray-500">
+
+                Belum punya akun?
+
+                <a
+                    href="index.php?url=auth/register"
+                    class="text-rose-500 font-semibold"
+                >
+                    Register
+                </a>
+
+            </p>
+
+        </div>
 
     </div>
 

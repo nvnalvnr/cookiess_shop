@@ -1,91 +1,141 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard Admin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
+<?php require_once "../app/views/layouts/header.php"; ?>
+<?php require_once "../app/views/layouts/sidebar.php"; ?>
 
-<div class="flex min-h-screen">
+<main class="flex-1 p-5">
 
-    <!-- Sidebar -->
-    <aside class="w-64 bg-orange-600 text-white">
+    <!-- Header Dashboard -->
+    <div class="bg-white rounded-2xl shadow-sm p-5 mb-4">
 
-        <div class="p-6 text-2xl font-bold border-b border-orange-500">
-            🍪 Cookies Shop
-        </div>
-
-        <nav class="p-4 space-y-2">
-
-            <a href="index.php?url=dashboard/index"
-               class="block p-3 rounded hover:bg-orange-500">
-                Dashboard
-            </a>
-
-            <a href="index.php?url=product/index"
-               class="block p-3 rounded hover:bg-orange-500">
-                Products
-            </a>
-
-      
-            <a href=""
-               class="block p-3 rounded hover:bg-orange-500">
-                Orders
-            </a>
-
-            <a href="index.php?url=auth/logout"
-               class="block p-3 rounded hover:bg-red-500">
-                Logout
-            </a>
-
-
-        </nav>
-
-    </aside>
-
-    <!-- Content -->
-    <main class="flex-1 p-8">
-
-        <h1 class="text-3xl font-bold mb-6">
-            Dashboard Admin
+        <h1 class="text-3xl font-bold text-[#4A6073]">
+            🍪 Cookies Shop Dashboard
         </h1>
 
-        <div class="grid grid-cols-3 gap-6 mb-8">
+        <p class="text-gray-500 mt-1">
+            Welcome back, <?= $_SESSION['name']; ?> 👋
+        </p>
 
-            <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="text-gray-500">Total Produk</h3>
-                <p class="text-3xl font-bold mt-2"><?= $totalProduk; ?></p>
+    </div>
 
+    <!-- Statistik -->
+    <div class="grid grid-cols-3 gap-4 mb-4">
+
+        <div class="bg-white rounded-2xl shadow-sm p-5">
+
+            <div class="text-4xl">
+                📦
             </div>
 
-            <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="text-gray-500">Total Order</h3>
-                <p class="text-3xl font-bold mt-2">15</p>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow">
-                <h3 class="text-gray-500">Total User</h3>
-                <p class="text-3xl font-bold mt-2"><?= $totalUser; ?></p>
-            </div>
-
-        </div>
-
-        <div class="bg-white rounded-xl shadow p-6">
-
-            <h2 class="text-xl font-bold mb-4">
-                Selamat Datang,
-                <?= $_SESSION['name']; ?>
-            </h2>
-
-            <p class="text-gray-500">
-                Kelola toko cookies dari dashboard ini.
+            <p class="text-gray-500 mt-2">
+                Products
             </p>
 
+            <h2 class="text-4xl font-bold text-[#4A6073]">
+                <?= $totalProduk ?>
+            </h2>
+
         </div>
 
-    </main>
+        <div class="bg-white rounded-2xl shadow-sm p-5">
 
-</div>
+            <div class="text-4xl">
+                🛒
+            </div>
 
-</body>
-</html>
+            <p class="text-gray-500 mt-2">
+                Orders
+            </p>
+
+            <h2 class="text-4xl font-bold text-[#4A6073]">
+                <?= $totalOrders ?>
+            </h2>
+
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm p-5">
+
+            <div class="text-4xl">
+                👥
+            </div>
+
+            <p class="text-gray-500 mt-2">
+                Users
+            </p>
+
+            <h2 class="text-4xl font-bold text-[#4A6073]">
+                <?= $totalUser ?>
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="grid grid-cols-2 gap-4">
+
+        <!-- Recent Orders -->
+        <div class="bg-white rounded-2xl shadow-sm p-5">
+
+            <h2 class="text-xl font-bold text-[#4A6073] mb-4">
+                Recent Orders
+            </h2>
+
+            <div class="space-y-3">
+
+                <div class="flex justify-between border-b pb-2">
+                    <span>Chocolate Cookies</span>
+                    <span class="text-yellow-600">
+                        Pending
+                    </span>
+                </div>
+
+                <div class="flex justify-between border-b pb-2">
+                    <span>Matcha Cookies</span>
+                    <span class="text-green-600">
+                        Completed
+                    </span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Red Velvet Cookies</span>
+                    <span class="text-blue-600">
+                        Processing
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Latest Products -->
+        <div class="bg-white rounded-2xl shadow-sm p-5">
+
+            <h2 class="text-xl font-bold text-[#4A6073] mb-4">
+                Latest Products
+            </h2>
+
+            <div class="space-y-3">
+
+                <div class="flex justify-between border-b pb-2">
+                    <span>Chocolate Cookies</span>
+                    <span>Rp 25.000</span>
+                </div>
+
+                <div class="flex justify-between border-b pb-2">
+                    <span>Matcha Cookies</span>
+                    <span>Rp 30.000</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Red Velvet Cookies</span>
+                    <span>Rp 35.000</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<?php require_once "../app/views/layouts/footer.php"; ?>
