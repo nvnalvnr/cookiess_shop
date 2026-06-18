@@ -12,6 +12,10 @@ class CatalogController
         $productModel = new Product ($conn);
         
         $products = $productModel ->getAll();
+        
+        $productModel = new Product($conn);
+        $products = $productModel->getAll();
+
 
         require_once "../app/views/customer/catalog.php";
         

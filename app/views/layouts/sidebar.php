@@ -1,5 +1,6 @@
-<aside class="w-72 min-h-screen bg-gradient-to-b from-rose-500 to-pink-600 text-white">
+<aside class="w-72 min-h-screen bg-gradient-to-b from-rose-500 to-pink-600 text-white flex flex-col">
 
+    <!-- Header Sidebar -->
     <div class="p-8 border-b border-white/20">
 
         <h1 class="text-3xl font-bold">
@@ -12,7 +13,8 @@
 
     </div>
 
-    <nav class="p-5 space-y-3">
+    <!-- Menu -->
+    <nav class="p-5 space-y-3 flex-1">
 
         <a href="index.php?url=dashboard/index"
            class="block p-4 rounded-xl hover:bg-white/20 transition">
@@ -29,11 +31,33 @@
             🛒 Orders
         </a>
 
+        <a href="index.php?url=report/index"
+           class="block p-4 rounded-xl hover:bg-white/20 transition">
+            📊 Reports
+        </a>
+
         <a href="index.php?url=auth/logout"
            class="block p-4 rounded-xl hover:bg-red-400 transition">
             🚪 Logout
         </a>
 
     </nav>
+
+    <!-- Gambar Bawah Sidebar -->
+    <div class="p-4">
+
+        <div class="p-4 mt-auto">
+
+<img
+    src="assets/cookies.png"
+    alt="Cookies"
+    class="w-full rounded-2xl shadow-lg">
+
+</div>
+        <p class="text-center text-sm text-rose-100 mt-3">
+            Fresh Cookies Everyday 🍪
+        </p>
+
+    </div>
 
 </aside>

@@ -49,4 +49,26 @@ public function delete($id)
     return mysqli_query($this->conn, $query);
 }
 
+public function getLatestProducts()
+{
+    $query = "
+        SELECT *
+        FROM products
+        ORDER BY id DESC
+        LIMIT 5
+    ";
+
+    $result = mysqli_query($this->conn, $query);
+
+    $data = [];
+
+    while ($row = mysqli_fetch_assoc($result))
+    {
+        $data[] = $row;
+    }
+
+    return $data;
+}
+
+
 }

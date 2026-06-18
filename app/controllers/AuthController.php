@@ -81,16 +81,35 @@ class AuthController
             return;
         }
 
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        // Cek email sudah ada
+        $check = mysqli_query(
+            $conn,
+            "SELECT id FROM users WHERE email = '$email'"
+        );
 
-        $query = "INSERT INTO users (name, email, password)
-                  VALUES ('$name', '$email', '$hashedPassword')";
+        if (mysqli_num_rows($check) > 0) {
+            echo "Email sudah terdaftar!";
+            return;
+        }
+
+        $hashedPassword = password_hash(
+            $password,
+            PASSWORD_DEFAULT
+        );
+
+        $query = "
+            INSERT INTO users
+            (name, email, password)
+            VALUES
+            ('$name', '$email', '$hashedPassword')
+        ";
 
         $insert = mysqli_query($conn, $query);
 
         if ($insert) {
 
-            echo "REGISTER BERHASIL";
+            header("Location: index.php?url=auth/login");
+            exit;
 
         } else {
 

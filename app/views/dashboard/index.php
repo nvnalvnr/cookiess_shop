@@ -1,134 +1,222 @@
 <?php require_once "../app/views/layouts/header.php"; ?>
 <?php require_once "../app/views/layouts/sidebar.php"; ?>
 
-<main class="flex-1 p-5">
+<main class="flex-1 p-5 bg-rose-50 min-h-screen">
 
-    <!-- Header Dashboard -->
-    <div class="bg-white rounded-2xl shadow-sm p-5 mb-4">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
 
-        <h1 class="text-3xl font-bold text-[#4A6073]">
-            🍪 Cookies Shop Dashboard
-        </h1>
+        <div>
+            <h1 class="text-3xl font-bold text-slate-700">
+                Dashboard
+            </h1>
 
-        <p class="text-gray-500 mt-1">
-            Welcome back, <?= $_SESSION['name']; ?> 👋
-        </p>
+            <p class="text-gray-500">
+                Welcome back, <?= $_SESSION['name']; ?>!
+            </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+
+            <div class="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center">
+                👤
+            </div>
+
+            <div>
+                <p class="font-semibold">
+                    <?= $_SESSION['name']; ?>
+                </p>
+
+                <p class="text-sm text-gray-500">
+                    Administrator
+                </p>
+            </div>
+
+        </div>
 
     </div>
 
     <!-- Statistik -->
-    <div class="grid grid-cols-3 gap-4 mb-4">
+    <div class="grid grid-cols-4 gap-4 mb-5">
 
         <div class="bg-white rounded-2xl shadow-sm p-5">
+            <div class="text-3xl mb-3">📦</div>
 
-            <div class="text-4xl">
-                📦
-            </div>
-
-            <p class="text-gray-500 mt-2">
+            <p class="text-gray-500">
                 Products
             </p>
 
-            <h2 class="text-4xl font-bold text-[#4A6073]">
+            <h2 class="text-3xl font-bold text-rose-500">
                 <?= $totalProduk ?>
             </h2>
-
         </div>
 
         <div class="bg-white rounded-2xl shadow-sm p-5">
+            <div class="text-3xl mb-3">🛒</div>
 
-            <div class="text-4xl">
-                🛒
-            </div>
-
-            <p class="text-gray-500 mt-2">
+            <p class="text-gray-500">
                 Orders
             </p>
 
-            <h2 class="text-4xl font-bold text-[#4A6073]">
+            <h2 class="text-3xl font-bold text-blue-500">
                 <?= $totalOrders ?>
             </h2>
-
         </div>
 
         <div class="bg-white rounded-2xl shadow-sm p-5">
+            <div class="text-3xl mb-3">👥</div>
 
-            <div class="text-4xl">
-                👥
-            </div>
-
-            <p class="text-gray-500 mt-2">
+            <p class="text-gray-500">
                 Users
             </p>
 
-            <h2 class="text-4xl font-bold text-[#4A6073]">
+            <h2 class="text-3xl font-bold text-purple-500">
                 <?= $totalUser ?>
             </h2>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm p-5">
+            <div class="text-3xl mb-3">⏳</div>
+
+            <p class="text-gray-500">
+                Pending Orders
+            </p>
+
+            <h2 class="text-3xl font-bold text-yellow-500">
+                <?= $totalPending ?>
+            </h2>
+        </div>
+
+    </div>
+
+    <!-- Revenue -->
+    <div class="bg-white rounded-2xl shadow-sm p-5 mb-5">
+
+        <div class="flex items-center gap-4">
+
+            <div class="text-5xl">
+                💰
+            </div>
+
+            <div>
+
+                <p class="text-gray-500">
+                    Revenue (Completed Orders)
+                </p>
+
+                <h2 class="text-3xl font-bold text-green-600">
+                    Rp <?= number_format($totalRevenue, 0, ',', '.'); ?>
+                </h2>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- Bottom Section -->
+    <!-- Bottom -->
     <div class="grid grid-cols-2 gap-4">
 
         <!-- Recent Orders -->
-        <div class="bg-white rounded-2xl shadow-sm p-5">
+        <div class="bg-white rounded-2xl shadow-sm">
 
-            <h2 class="text-xl font-bold text-[#4A6073] mb-4">
-                Recent Orders
-            </h2>
+            <div class="p-5">
 
-            <div class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-700 mb-4">
+                    Recent Orders
+                </h2>
 
-                <div class="flex justify-between border-b pb-2">
-                    <span>Chocolate Cookies</span>
-                    <span class="text-yellow-600">
-                        Pending
-                    </span>
-                </div>
+                <?php foreach($recentOrders as $order): ?>
 
-                <div class="flex justify-between border-b pb-2">
-                    <span>Matcha Cookies</span>
-                    <span class="text-green-600">
-                        Completed
-                    </span>
-                </div>
+                    <div class="flex justify-between items-center border-b py-3">
 
-                <div class="flex justify-between">
-                    <span>Red Velvet Cookies</span>
-                    <span class="text-blue-600">
-                        Processing
-                    </span>
-                </div>
+                        <div>
+
+                            <p class="font-semibold">
+                                <?= $order['customer_name']; ?>
+                            </p>
+
+                            <p class="text-sm text-gray-500">
+                                <?= $order['product_name']; ?>
+                            </p>
+
+                        </div>
+
+                        <div>
+
+                            <?php if($order['status']=='pending'): ?>
+                                <span class="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-lg text-sm">
+                                    Pending
+                                </span>
+
+                            <?php elseif($order['status']=='processing'): ?>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-lg text-sm">
+                                    Diproses
+                                </span>
+
+                            <?php elseif($order['status']=='completed'): ?>
+                                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-lg text-sm">
+                                    Selesai
+                                </span>
+
+                            <?php else: ?>
+                                <span class="bg-red-100 text-red-700 px-3 py-1 rounded-lg text-sm">
+                                    Dibatalkan
+                                </span>
+                            <?php endif; ?>
+
+                        </div>
+
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+
+            <div class="border-t p-4 text-center">
+
+                <a href="index.php?url=order/index"
+                   class="text-rose-500 hover:text-rose-600">
+                    View all orders →
+                </a>
 
             </div>
 
         </div>
 
         <!-- Latest Products -->
-        <div class="bg-white rounded-2xl shadow-sm p-5">
+        <div class="bg-white rounded-2xl shadow-sm">
 
-            <h2 class="text-xl font-bold text-[#4A6073] mb-4">
-                Latest Products
-            </h2>
+            <div class="p-5">
 
-            <div class="space-y-3">
+                <h2 class="text-xl font-bold text-slate-700 mb-4">
+                    Latest Products
+                </h2>
 
-                <div class="flex justify-between border-b pb-2">
-                    <span>Chocolate Cookies</span>
-                    <span>Rp 25.000</span>
-                </div>
+                <?php foreach($latestProducts as $product): ?>
 
-                <div class="flex justify-between border-b pb-2">
-                    <span>Matcha Cookies</span>
-                    <span>Rp 30.000</span>
-                </div>
+                    <div class="flex justify-between border-b py-3">
 
-                <div class="flex justify-between">
-                    <span>Red Velvet Cookies</span>
-                    <span>Rp 35.000</span>
-                </div>
+                        <span>
+                            <?= $product['name']; ?>
+                        </span>
+
+                        <span>
+                            Rp <?= number_format($product['price'],0,',','.'); ?>
+                        </span>
+
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+
+            <div class="border-t p-4 text-center">
+
+                <a href="index.php?url=product/index"
+                   class="text-rose-500 hover:text-rose-600">
+                    View all products →
+                </a>
 
             </div>
 
