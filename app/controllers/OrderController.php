@@ -78,7 +78,7 @@ class OrderController
              WHERE id = $productId"
         );
 
-        header("Location: index.php?url=customer/my-orders");
+        header("Location: index.php?url=order/myOrders");
         exit;
     }
 
