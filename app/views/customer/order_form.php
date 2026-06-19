@@ -45,7 +45,6 @@
                 <textarea
                     name="address"
                     class="w-full border p-2 rounded mt-1"
-                    required
                 ></textarea>
             </div>
 
