@@ -14,34 +14,43 @@
     </div>
 
     <!-- Menu -->
-    <nav class="p-5 space-y-3 flex-1">
+  <nav class="p-5 space-y-3 flex-1">
 
-        <a href="index.php?url=dashboard/index"
-           class="block p-4 rounded-xl hover:bg-white/20 transition">
-            🏠 Dashboard
-        </a>
+<?php if($_SESSION['role'] == 'admin'): ?>
 
-        <a href="index.php?url=product/index"
-           class="block p-4 rounded-xl hover:bg-white/20 transition">
-            📦 Products
-        </a>
+    <a href="index.php?url=dashboard/index" class="block p-4 rounded-xl hover:bg-white/20 transition">
+        🏠 Dashboard
+    </a>
 
-        <a href="index.php?url=order/index"
-           class="block p-4 rounded-xl hover:bg-white/20 transition">
-            🛒 Orders
-        </a>
+    <a href="index.php?url=product/index" class="block p-4 rounded-xl hover:bg-white/20 transition">
+        📦 Products
+    </a>
 
-        <a href="index.php?url=report/index"
-           class="block p-4 rounded-xl hover:bg-white/20 transition">
-            📊 Reports
-        </a>
+    <a href="index.php?url=order/index" class="block p-4 rounded-xl hover:bg-white/20 transition">
+        🛒 Orders
+    </a>
 
-        <a href="index.php?url=auth/logout"
-           class="block p-4 rounded-xl hover:bg-red-400 transition">
-            🚪 Logout
-        </a>
+    <a href="index.php?url=report/index" class="block p-4 rounded-xl hover:bg-white/20 transition">
+        📊 Reports
+    </a>
 
-    </nav>
+<?php else: ?>
+
+    <a href="index.php?url=catalog/index" class="block p-4 rounded-xl hover:bg-white/20 transition">
+        🍪 Catalog Kue
+    </a>
+
+    <a href="index.php?url=order/myOrders" class="block p-4 rounded-xl hover:bg-white/20 transition">
+        🛒 Pesanan Saya
+    </a>
+
+<?php endif; ?>
+
+    <a href="index.php?url=auth/logout" class="block p-4 rounded-xl hover:bg-red-400 transition">
+        🚪 Logout
+    </a>
+
+</nav>
 
     <!-- Gambar Bawah Sidebar -->
     <div class="p-4">

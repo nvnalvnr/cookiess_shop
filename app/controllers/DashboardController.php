@@ -12,58 +12,33 @@ class DashboardController
         requireLogin();
         global $conn;
 
-        // Total Produk
-        $totalProduk = mysqli_fetch_assoc(
-            mysqli_query(
-                $conn,
-                "SELECT COUNT(*) as total FROM products"
-            )
-        )['total'];
+        // TOTAL PRODUK
+        $queryProduk = mysqli_query($conn, "SELECT COUNT(*) AS total FROM products");
+        $totalProduk = mysqli_fetch_assoc($queryProduk)['total'] ?? 0;
 
-        // Total User
-        $totalUser = mysqli_fetch_assoc(
-            mysqli_query(
-                $conn,
-                "SELECT COUNT(*) as total FROM users"
-            )
-        )['total'];
+        // TOTAL ORDER
+        $queryOrder = mysqli_query($conn, "SELECT COUNT(*) AS total FROM orders");
+        $totalOrder = mysqli_fetch_assoc($queryOrder)['total'] ?? 0;
 
-        // Total Orders
-        $totalOrders = mysqli_fetch_assoc(
-            mysqli_query(
-                $conn,
-                "SELECT COUNT(*) as total FROM orders"
-            )
-        )['total'];
+        // TOTAL PENDAPATAN (opsional tapi sering dipakai)
+        $queryIncome = mysqli_query($conn, "SELECT SUM(total_price) AS total FROM orders");
+        $totalIncome = mysqli_fetch_assoc($queryIncome)['total'] ?? 0;
 
-        // Total Pending Orders
-        $totalPending = mysqli_fetch_assoc(
-            mysqli_query(
-                $conn,
-                "SELECT COUNT(*) as total
-                 FROM orders
-                 WHERE status = 'pending'"
-            )
-        )['total'];
+        // DATA ORDER TERBARU (buat tabel dashboard)
+        $queryRecentOrders = mysqli_query($conn, "
+            SELECT o.*, p.name AS product_name
+            FROM orders o
+            JOIN products p ON p.id = o.product_id
+            ORDER BY o.id DESC
+            LIMIT 5
+        ");
 
-        // Total Revenue
-        $totalRevenue = mysqli_fetch_assoc(
-            mysqli_query(
-                $conn,
-                "SELECT SUM(total_price) as total
-                 FROM orders
-                 WHERE status = 'completed'"
-            )
-        )['total'];
+        $recentOrders = [];
+        while ($row = mysqli_fetch_assoc($queryRecentOrders)) {
+            $recentOrders[] = $row;
+        }
 
-        // Latest Products
-        $productModel = new Product($conn);
-        $latestProducts = $productModel->getLatestProducts();
-
-        // Recent Orders
-        $orderModel = new Order($conn);
-        $recentOrders = $orderModel->getRecentOrders();
-
-        require_once "../app/views/dashboard/index.php";
+        // kirim ke view
+        require "../app/views/dashboard/index.php";
     }
 }
